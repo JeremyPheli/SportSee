@@ -1,0 +1,53 @@
+.wrapper {
+    margin-bottom: 2em;
+    border-radius: 6px;
+    width: 1000px;
+    background-color: #FBFBFB;
+    padding: 25px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    margin-right: 1.5rem
+}
+
+.title-barChart {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #20253A;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.chip {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #282D30;
+    align-self: center;
+    margin-left: 30px
+}
+
+.tooltip-container {
+    background-color:#E60000;
+    width:55px;
+    height:75px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.tooltip-value {
+    color:white;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 24px;
+    margin-top:7px;
+}

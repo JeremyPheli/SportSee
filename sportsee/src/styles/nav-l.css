@@ -1,0 +1,32 @@
+.nav-l {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    width: 117px;
+    height: 828px;
+}
+
+.nav-l-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 200px;
+}
+
+.nav-l-btn {
+    width: 55%;
+    height: 55%;
+}
+
+.copyright {
+    margin-top: 200px;
+    size: 12px;
+    font-weight: 500;
+    color: white;
+    transform: rotate(-90deg);
+    transform-origin: 50% 0;
+    font-size: 10px;
+    white-space: nowrap;
+}
