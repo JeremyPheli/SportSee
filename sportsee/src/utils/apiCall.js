@@ -4,8 +4,6 @@ const api = axios.create({
   url: "http://localhost:3000/",
 });
 
-console.log(api);
-
 export const getUserInfos = async (id) => {
   try {
     const res = await api.get(`http://localhost:3000/user/${id}`);

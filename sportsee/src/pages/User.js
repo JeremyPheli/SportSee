@@ -27,8 +27,6 @@ const User = () => {
     dataFunk();
   }, [id]);
 
-  console.log(data);
-
   if (loading) {
     return <p>Chargement en cours...</p>;
   }

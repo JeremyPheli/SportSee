@@ -8,6 +8,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  Rectangle,
 } from "recharts";
 import "../styles/averageSessions.css";
 
@@ -20,6 +21,22 @@ const SessionsToolTip = ({ active, payload }) => {
     );
   }
   return null;
+};
+
+const CustomizedCursor = (props) => {
+  const pointX = props.points[0].x;
+  const pointY = props.points[0].y;
+  const widthRectangle = props.width;
+  const heightRectangle = props.height ? props.height + 100 : props.height;
+  return (
+    <Rectangle
+      x={pointX}
+      y={pointY}
+      width={widthRectangle}
+      height={heightRectangle}
+      fill="rgba(0, 0, 0, 0.1)"
+    />
+  );
 };
 
 const AverageSessions = () => {
@@ -75,7 +92,10 @@ const AverageSessions = () => {
             domain={[0, "dataMax + 30"]}
             hide={true}
           />
-          <Tooltip content={<SessionsToolTip />} />
+          <Tooltip
+            content={<SessionsToolTip />}
+            cursor={<CustomizedCursor />}
+          />
           <Line
             type="monotone"
             dataKey="sessionLength"
