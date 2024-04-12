@@ -8,6 +8,7 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from "recharts";
+import { formatedDataKind } from "../utils/methods";
 
 const Performance = () => {
   const [data, setData] = useState([]);
@@ -17,25 +18,7 @@ const Performance = () => {
     const data = async () => {
       const request = await getData("USER_PERFORMANCE", id);
       if (!request) return alert("data error");
-      const formatData = request.data.data.map((data) => {
-        switch (data.kind) {
-          case 1:
-            return { ...data, kind: "Cardio" };
-          case 2:
-            return { ...data, kind: "Energie" };
-          case 3:
-            return { ...data, kind: "Endurance" };
-          case 4:
-            return { ...data, kind: "Force" };
-          case 5:
-            return { ...data, kind: "Vitesse" };
-          case 6:
-            return { ...data, kind: "Intensité" };
-          default:
-            return { ...data };
-        }
-      });
-      setData(formatData);
+      setData(formatedDataKind(request));
     };
     data();
   }, [id]);

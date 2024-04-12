@@ -7,7 +7,6 @@ const api = axios.create({
 export const getUserInfos = async (id) => {
   try {
     const res = await api.get(`http://localhost:3000/user/${id}`);
-    console.log(res);
     return res.data;
   } catch (e) {
     console.log(e);

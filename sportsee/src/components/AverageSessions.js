@@ -11,6 +11,7 @@ import {
   Rectangle,
 } from "recharts";
 import "../styles/averageSessions.css";
+import { formatedDataSessionDay } from "../utils/methods";
 
 const SessionsToolTip = ({ active, payload }) => {
   if (active) {
@@ -47,27 +48,7 @@ const AverageSessions = () => {
     const data = async () => {
       const request = await getData("USER_AVERAGE_SESSIONS", id);
       if (!request) return alert("data error");
-      const formatData = request.data.sessions.map((session) => {
-        switch (session.day) {
-          case 1:
-            return { ...session, day: "L" };
-          case 2:
-            return { ...session, day: "M" };
-          case 3:
-            return { ...session, day: "M" };
-          case 4:
-            return { ...session, day: "J" };
-          case 5:
-            return { ...session, day: "V" };
-          case 6:
-            return { ...session, day: "S" };
-          case 7:
-            return { ...session, day: "D" };
-          default:
-            return { ...session };
-        }
-      });
-      setData(formatData);
+      setData(formatedDataSessionDay(request));
     };
     data();
   }, [id]);
